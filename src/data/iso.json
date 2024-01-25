@@ -1,0 +1,140 @@
+{
+    "iso": [
+        {
+            "code": "fr",
+            "language": "French"
+        },
+        {
+            "code": "de",
+            "language": "German"
+        },
+        {
+            "code": "it",
+            "language": "Italian"
+        },
+        {
+            "code": "ja",
+            "language": "Japanese"
+        },
+        {
+            "code": "ko",
+            "language": "Korean"
+        },
+        {
+            "code": "pt",
+            "language": "Portuguese"
+        },
+        {
+            "code": "ru",
+            "language": "Russian"
+        },
+        {
+            "code": "zh",
+            "language": "Chinese"
+        },
+        {
+            "code": "ar",
+            "language": "Arabic"
+        },
+        {
+            "code": "hi",
+            "language": "Hindi"
+        },
+        {
+            "code": "nl",
+            "language": "Dutch"
+        },
+        {
+            "code": "sv",
+            "language": "Swedish"
+        },
+        {
+            "code": "tr",
+            "language": "Turkish"
+        },
+        {
+            "code": "vi",
+            "language": "Vietnamese"
+        },
+        {
+            "code": "fi",
+            "language": "Finnish"
+        },
+        {
+            "code": "el",
+            "language": "Greek"
+        },
+        {
+            "code": "hu",
+            "language": "Hungarian"
+        },
+        {
+            "code": "pl",
+            "language": "Polish"
+        },
+        {
+            "code": "cs",
+            "language": "Czech"
+        },
+        {
+            "code": "th",
+            "language": "Thai"
+        },
+        {
+            "code": "da",
+            "language": "Danish"
+        },
+        {
+            "code": "he",
+            "language": "Hebrew"
+        },
+        {
+            "code": "ro",
+            "language": "Romanian"
+        },
+        {
+            "code": "no",
+            "language": "Norwegian"
+        },
+        {
+            "code": "id",
+            "language": "Indonesian"
+        },
+        {
+            "code": "ms",
+            "language": "Malay"
+        },
+        {
+            "code": "sk",
+            "language": "Slovak"
+        },
+        {
+            "code": "uk",
+            "language": "Ukrainian"
+        },
+        {
+            "code": "et",
+            "language": "Estonian"
+        },
+        {
+            "code": "hr",
+            "language": "Croatian"
+        },
+        {
+            "code": "lt",
+            "language": "Lithuanian"
+        },
+        {
+            "code": "lv",
+            "language": "Latvian"
+        },
+        {
+            "code": "sl",
+            "language": "Slovenian"
+        },
+        {
+            "code": "sq",
+            "language": "Albanian"
+        }
+    ]
+}
