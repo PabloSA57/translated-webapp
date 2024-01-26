@@ -4,6 +4,7 @@ import Chip from "./chip";
 import soundsvg from "../assets/img/sound_max_fill.svg";
 import copysvg from "../assets/img/Copy.svg";
 import changesvg from "../assets/img/Horizontal_top_left_main.svg";
+import circlesvg from "../assets/img/circles.svg";
 
 import { useState } from "react";
 import CustomSelect from "./custom-select";
@@ -15,17 +16,25 @@ const CardTranslated = ({
   text,
   onChangeText,
   onTranslate,
+  isLoading,
 }) => {
   const [select, setSelect] = useState({
     code: "fr",
     language: "French",
   });
 
+  const [activeVoz, setActiveVoz] = useState(false);
+  const [activeCopy, setActiveCopy] = useState(false);
+
   const copyText = () => {
     navigator.clipboard
       .writeText(text)
       .then(() => {
-        console.log("Texto copiado con éxito");
+        setActiveCopy(true);
+
+        setTimeout(() => {
+          setActiveCopy(false);
+        }, 1000);
       })
       .catch((err) => {
         console.error("Error al copiar el texto", err);
@@ -33,29 +42,33 @@ const CardTranslated = ({
   };
 
   const soundText = () => {
-    // Verificar si la API de texto a voz es compatible con el navegador
     if ("speechSynthesis" in window) {
-      // Crear un objeto de síntesis de voz
       const synthesis = window.speechSynthesis;
-
-      // Crear un objeto de voz con el texto proporcionado
       const voz = new SpeechSynthesisUtterance(text);
       voz.lang = objlanguage.code;
-      // Reproducir la voz
       synthesis.speak(voz);
+      setActiveVoz(true);
+
+      const interval = setInterval(() => {
+        if (!synthesis.speaking) {
+          clearInterval(interval);
+          setActiveVoz(false);
+        }
+      }, 1000);
     } else {
-      // Manejar el caso en el que la API no sea compatible
       alert("La API de texto a voz no es compatible con este navegador.");
     }
   };
   return (
-    <div className=" bg-[#212936cc] border-[1px] border-[#4D5562] p-3 md:p-4 rounded-xl md:max-w-[500px] w-full flex flex-col justify-between">
-      <header className="w-full py-2 md:p-3 border-b-[1px] border-b-[#4D5562]">
+    <div className="relative bg-[#212936f5] border-[1px] border-[#4D5562] p-3 md:p-4 rounded-xl md:max-w-[500px] w-full flex flex-col justify-between">
+      {isLoading && (
+        <div className=" z-30 absolute top-0 bottom-0 right-0 left-0 flex justify-center items-center bg-[#12121259]">
+          <img src={circlesvg} alt="a" className="w-5 h-5" />
+        </div>
+      )}
+      <header className="w-full pb-2  md:pb-3 border-b-[1px] border-b-[#4D5562]">
         <div className=" flex justify-between items-center">
           <div className=" flex  ">
-            {translated && (
-              <Chip text="Detectar idioma" active={false} key={"DI"} />
-            )}
             <Chip
               text="Spanish"
               active={objlanguage.language === "Spanish"}
@@ -111,13 +124,25 @@ const CardTranslated = ({
         <div className=" flex gap-2">
           <button
             onClick={soundText}
-            className=" border-[1px] border-[#394150] p-1 rounded-md cursor-pointer h-fit"
+            className={`border-[1px] ${
+              activeVoz
+                ? " border-green-600 text-green-600"
+                : "border-[#394150]"
+            } p-1 rounded-md cursor-pointer h-fit hover:bg-slate-700`}
           >
-            <img src={soundsvg} alt="" className=" w-full h-full" />
+            <img
+              src={soundsvg}
+              alt=""
+              className="text-green-600 w-full h-full"
+            />
           </button>
           <button
             onClick={copyText}
-            className=" border-[1px] border-[#394150] p-1 rounded-md cursor-pointer h-fit"
+            className={`border-[1px] ${
+              activeCopy
+                ? " border-green-600 text-green-600"
+                : "border-[#394150]"
+            } p-1 rounded-md cursor-pointer h-fit hover:bg-slate-700`}
           >
             <img src={copysvg} alt="" className=" w-full h-full" />
           </button>

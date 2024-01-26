@@ -4,7 +4,7 @@ const Chip = ({ text, active, onClick }) => {
     <div
       className={` flex justify-center items-center h-fit rounded-xl ${
         active ? "bg-[#4D5562]" : " bg-transparent"
-      } px-3 py-1`}
+      } px-3 py-1 cursor-pointer`}
       onClick={onClick}
     >
       <span

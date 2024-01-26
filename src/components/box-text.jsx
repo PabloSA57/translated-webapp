@@ -15,7 +15,7 @@ const BoxText = ({ isTranslated, onChangeText, text }) => {
         rows="1"
         spellCheck="false"
         maxLength={500}
-        className="h-[100px] w-full bg-transparent text-sm border-none resize-none whitespace-pre-wrap focus:outline-none"
+        className="h-[120px] w-full bg-transparent text-sm border-none resize-none whitespace-pre-wrap focus:outline-none"
       ></textarea>
       {isTranslated && (
         <div className="w-full flex justify-end">
